@@ -1,4 +1,5 @@
 '''
+Problem:
 a function that takes a list of integers, and returns a new list with every 
 other element from the original list, starting with the first element. 
 For instance: every_other([1,4,7,2,5]) # => [1,7,5]
@@ -16,6 +17,7 @@ def function_name(list_of_integers)
         keep this running for as long as counter <= length of list
 '''
 '''
+Formal Pseudocode:
 def every_other(list):
     initialize counter at 0
     start a new list

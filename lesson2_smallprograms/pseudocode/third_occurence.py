@@ -6,6 +6,29 @@ in a string. For instance, if the given character is 'x' and the string is
 If the given character does not occur at least 3 times, return None.
 '''
 '''
+4 Possible occurences:
+No hits
+1-2 hits
+3 hits
+3+ hits
+'''
+'''
+PseudoCode
+if str.count() < 3:
+    return None
+if str.count == 3:
+    return str.rfind()
+if str.count > 3:
+    hits = 0
+    counter = 0
+    while hits < 3:
+        if str[counter] == substring:
+            hits += 1
+        counter += 1
+    print(counter)
+
+'''
+'''
 Pseudocode:
 use the .count() method
     string.count(substring) should return the number of occurences
@@ -23,9 +46,9 @@ else:
     when hits = 3, return the index
     
 '''
-
+'''
 def third_occurence(string, substring):
-    if string.count(substring) == -1:
+    if string.count(substring) == 0:
         return None
     elif string.count(substring) == 3:
         return string.rfind(substring)
@@ -35,8 +58,24 @@ def third_occurence(string, substring):
         while hits < 3:
             if string[counter] == substring:
                 hits += 1
-                counter += 1
+            counter += 1
         return counter
-        
-my_string = 'axbxcdxex'
-print(third_occurence(my_string, 'x'))
+'''
+def third_occurence(string, substring):
+    if string.count(substring) < 3:
+        return None
+    if string.count(substring) == 3:
+        return string.rfind(substring)
+    if string.count(substring) > 3:
+        hits = 0
+        counter = 0
+        while hits < 3:
+            if string[counter] == substring:
+                hits += 1
+            if hits == 3:
+                return counter
+            counter += 1
+
+print(third_occurence('youtube', 'x'))
+print(third_occurence('axbxcdxex', 'x'))
+print(third_occurence('xyxxy', 'x'))
