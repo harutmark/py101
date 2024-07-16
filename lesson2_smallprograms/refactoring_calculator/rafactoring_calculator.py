@@ -33,12 +33,16 @@ while operation not in  ["+", "-", "*", "/"]:
 
 match operation:
     case "+":
-        output = int(number1) + int(number2)
+        output = float(number1) + float(number2)
     case "-":
-        output = int(number1) - int(number2)
+        output = float(number1) - float(number2)
     case "*":
-        output = int(number1) * int(number2)
+        output = float(number1) * float(number2)
     case "/":
-        output = int(number1) / int(number2)
+        if number2 == '0':
+            prompt('You can not divide by zero.')
+            output = None
+        else:
+            output = float(number1) * float(number2)
 
 prompt(f"{number1} {operation} {number2} = {output}")
