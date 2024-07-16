@@ -1,7 +1,21 @@
+'''
+Simple calculator program built as part of Launch School cirriculum
+PY 101, Lesson 2, Assignment 11
+This is a refactored version of the original calculator built for Assignment 7
+'''
+
 def prompt(message):
+    '''
+    Adds an '==> ' prefix to all terminal outputs
+    '''
     print(f"==> {message}")
 
 def invalid_number(number_str):
+    '''
+    Checks to see if user input is invalid (not float or integer)
+    Invalid inputs return True, Valid inputs return False
+    Valid = float or integer, Invalid = Not Float or Integer
+    '''
     try:
         float(number_str)
     except ValueError:
@@ -33,16 +47,16 @@ while operation not in  ["+", "-", "*", "/"]:
 
 match operation:
     case "+":
-        output = float(number1) + float(number2)
+        OUTPUT = float(number1) + float(number2)
     case "-":
-        output = float(number1) - float(number2)
+        OUTPUT = float(number1) - float(number2)
     case "*":
-        output = float(number1) * float(number2)
+        OUTPUT = float(number1) * float(number2)
     case "/":
         if number2 == '0':
             prompt('You can not divide by zero.')
-            output = None
+            OUTPUT = None
         else:
-            output = float(number1) * float(number2)
+            OUTPUT = float(number1) * float(number2)
 
-prompt(f"{number1} {operation} {number2} = {output}")
+prompt(f"{number1} {operation} {number2} = {OUTPUT}")
