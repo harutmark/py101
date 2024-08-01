@@ -58,9 +58,9 @@ while True:
                 prompt('You can not divide by zero.')
                 OUTPUT = None
             else:
-                OUTPUT = float(number1) * float(number2)
+                OUTPUT = float(number1) / float(number2)
     
-    prompt(f"{number1} {operation} {number2} = {OUTPUT}")
+    prompt(f"{number1} {operation} {number2} = {OUTPUT}\n")
 
     #Another Calculation?
     prompt('Would you like to perform another calculation? y/n')
