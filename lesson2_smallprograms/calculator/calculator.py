@@ -1,39 +1,62 @@
-# Let the user know they've entered the program
+'''
+Simple calculator program built as part of Launch School cirriculum
+PY 101, Lesson 2, Assignment 11
+This is a refactored version of the original calculator built for Assignment 7
+'''
 
-print('Welcome to Calculator!')
+def prompt(message):
+    '''
+    Adds an '==> ' prefix to all terminal outputs
+    '''
+    print(f"==> {message}")
 
+def invalid_number(number_str):
+    '''
+    Checks to see if user input is invalid (not float or integer)
+    Invalid inputs return True, Valid inputs return False
+    Valid = float or integer, Invalid = Not Float or Integer
+    '''
+    try:
+        float(number_str)
+    except ValueError:
+        return True
+    return False
 
-# Ask the user for the first number
+prompt('Welcome to Calculator!')
 
-num1 = float(input('What is your first input?: '))
+prompt("What's the first number?")
+number1 = input('==> ')
 
+while invalid_number(number1):
+    prompt("Hmm... that doesn't look like a valid number.")
+    number1 = input('==> Please enter an integer or decimal: ')
 
-# Ask the user for the second number
+prompt("What's the second number?")
+number2 = input('==> ')
 
-num2 = float(input('What is your second input?: '))
+while invalid_number(number2):
+    prompt("Hmm... that doesn't look like a valid number.")
+    number2 = input('==> Please enter an integer or decimal: ')
 
+prompt("What operation would you like to perform?")
+operation = input('==> +, -, *, or /?: ')
 
-# Ask the user for an operation to perform on the 2 inputs
+while operation not in  ["+", "-", "*", "/"]:
+    prompt("You must choose +, -, *, or /")
+    operation = input('==> ')
 
-operation = input('What operation would you like to perform on your inputs?'
-                  '\n+ -> Add\n- -> Subtract\n* -> Multiply\n/ -> Divide'
-                  '\nOperation: ')
+match operation:
+    case "+":
+        OUTPUT = float(number1) + float(number2)
+    case "-":
+        OUTPUT = float(number1) - float(number2)
+    case "*":
+        OUTPUT = float(number1) * float(number2)
+    case "/":
+        if number2 == '0':
+            prompt('You can not divide by zero.')
+            OUTPUT = None
+        else:
+            OUTPUT = float(number1) * float(number2)
 
-
-# Perform the operation and print result
-
-if operation == '+':                        # Addition
-    result = num1 + num2
-    print(f'{num1} + {num2} = {result}')
-    
-elif operation == '-':                      # Subtraction
-    result = num1 - num2
-    print(f'{num1} - {num2} = {result}')
-    
-elif operation == '*':                      # Multiplication
-    result = num1 * num2
-    print(f'{num1} * {num2} = {result}')
-    
-elif operation == '/':                      # Division
-    result = num1 / num2
-    print(f'{num1} / {num2} = {result}')
+prompt(f"{number1} {operation} {number2} = {OUTPUT}")
