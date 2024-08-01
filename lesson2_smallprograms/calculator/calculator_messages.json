@@ -1,0 +1,13 @@
+{
+  "welcome": "Welcome to Calculator!",
+  "invalid_number": "Hmm... that doesn't look like a valid number.",
+  "request_valid_number": "Please enter an integer or decimal",
+  "request_first_number": "What's the first number?",
+  "request_second_number": "What's the second number?",
+  "request_operation": "What operation would you like to perform?",
+  "operation_options": "+, -, *, or / ?",
+  "operation_options_2": "You must choose from +, -, *, or /",
+  "zero_division_Warning": "You cannot divide by zero.",
+  "another_calculation": "Would you like to perform another calculation?",
+  "yes_or_no": "y/n"
+}
