@@ -1,6 +1,10 @@
 '''
 Simple calculator program built as part of Launch School cirriculum
 PY 101, Lesson 2
+
+To change language, edit lang variable in line 26
+    English  = 'en'
+    Armenian = 'hy'
 '''
 
 import json
@@ -19,7 +23,7 @@ def invalid_number(number_str):
         return True
     return False
 
-def messages(message, lang='en'):
+def messages(message, lang='hy'):
     return MESSAGES[lang][message]
 
 prompt(messages('welcome'))
