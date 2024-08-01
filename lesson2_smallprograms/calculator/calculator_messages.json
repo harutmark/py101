@@ -1,13 +1,28 @@
 {
-  "welcome": "Welcome to Calculator!",
-  "invalid_number": "Hmm... that doesn't look like a valid number.",
-  "request_valid_number": "Please enter an integer or decimal",
-  "request_first_number": "What's the first number?",
-  "request_second_number": "What's the second number?",
-  "request_operation": "What operation would you like to perform?",
-  "operation_options": "+, -, *, or / ?",
-  "operation_options_2": "You must choose from +, -, *, or /",
-  "zero_division_Warning": "You cannot divide by zero.",
-  "another_calculation": "Would you like to perform another calculation?",
-  "yes_or_no": "y/n"
+  "en": {
+    "welcome": "Welcome to Calculator!",
+    "invalid_number": "Hmm... that doesn't look like a valid number.",
+    "request_valid_number": "Please enter an integer or decimal",
+    "request_first_number": "What's the first number?",
+    "request_second_number": "What's the second number?",
+    "request_operation": "What operation would you like to perform?",
+    "operation_options": "+, -, *, or / ?",
+    "operation_options_2": "You must choose from +, -, *, or /",
+    "zero_division_Warning": "You cannot divide by zero.",
+    "another_calculation": "Would you like to perform another calculation?",
+    "yes_or_no": "y/n"
+  },
+  "hy": {
+    "welcome": "Բարի գալուստ հաշվիչին։",
+    "invalid_number": "Ոնցոր սխալ թիվ էք հավաքել",
+    "request_valid_number": "Հավաքեք մի ամբողջ թիվ կամ մի տասնորդական թիվ:",
+    "request_first_number": "Առաչին թիվը ի՞նչ է:",
+    "request_second_number": "Երկրորդ թիվը ի՞նչ է։",
+    "request_operation": "Ո՞ր մաթեմատիկական գործողությունը կցանկանայիք կատարել:",
+    "operation_options": "+, -, *, կամ / ?",
+    "operation_options_2": "Պետք է ընտրեք։ +, -, *, թե /",
+    "zero_division_Warning": "Անհնար է բաժանել զրոյով",
+    "another_calculation": "Կցանկանայի՞ք կատարել ուրիշ հաշվարկ:",
+    "yes_or_no": "Այո - Y   Ոչ - N"
+  }
 }
