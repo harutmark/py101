@@ -24,39 +24,48 @@ def invalid_number(number_str):
 
 prompt('Welcome to Calculator!')
 
-prompt("What's the first number?")
-number1 = input('==> ')
-
-while invalid_number(number1):
-    prompt("Hmm... that doesn't look like a valid number.")
-    number1 = input('==> Please enter an integer or decimal: ')
-
-prompt("What's the second number?")
-number2 = input('==> ')
-
-while invalid_number(number2):
-    prompt("Hmm... that doesn't look like a valid number.")
-    number2 = input('==> Please enter an integer or decimal: ')
-
-prompt("What operation would you like to perform?")
-operation = input('==> +, -, *, or /?: ')
-
-while operation not in  ["+", "-", "*", "/"]:
-    prompt("You must choose +, -, *, or /")
-    operation = input('==> ')
-
-match operation:
-    case "+":
-        OUTPUT = float(number1) + float(number2)
-    case "-":
-        OUTPUT = float(number1) - float(number2)
-    case "*":
-        OUTPUT = float(number1) * float(number2)
-    case "/":
-        if number2 == '0':
-            prompt('You can not divide by zero.')
-            OUTPUT = None
-        else:
+while True:
+    prompt("What's the first number?")
+    number1 = input('==> ')
+    
+    while invalid_number(number1):
+        prompt("Hmm... that doesn't look like a valid number.")
+        number1 = input('==> Please enter an integer or decimal: ')
+    
+    prompt("What's the second number?")
+    number2 = input('==> ')
+    
+    while invalid_number(number2):
+        prompt("Hmm... that doesn't look like a valid number.")
+        number2 = input('==> Please enter an integer or decimal: ')
+    
+    prompt("What operation would you like to perform?")
+    operation = input('==> +, -, *, or /?: ')
+    
+    while operation not in  ["+", "-", "*", "/"]:
+        prompt("You must choose +, -, *, or /")
+        operation = input('==> ')
+    
+    match operation:
+        case "+":
+            OUTPUT = float(number1) + float(number2)
+        case "-":
+            OUTPUT = float(number1) - float(number2)
+        case "*":
             OUTPUT = float(number1) * float(number2)
+        case "/":
+            if number2 == '0':
+                prompt('You can not divide by zero.')
+                OUTPUT = None
+            else:
+                OUTPUT = float(number1) * float(number2)
+    
+    prompt(f"{number1} {operation} {number2} = {OUTPUT}")
 
-prompt(f"{number1} {operation} {number2} = {OUTPUT}")
+    #Another Calculation?
+    prompt('Would you like to perform another calculation? y/n')
+    another_calculation = input()
+    if another_calculation[0].lower() != 'y':
+        break
+    else:
+        continue
