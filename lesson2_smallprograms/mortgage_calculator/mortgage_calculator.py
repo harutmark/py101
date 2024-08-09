@@ -1,7 +1,19 @@
+'''
+Use this program to determing monthly payments and total interest on loans,
+including mortgages and car loans.
+'''
+
 def prompt(message):
-    print(f"==> {message}")
+    '''
+    Adds "==> " before every printed terminal message
+    '''
+    print(f'==> {message}')
     
 def invalid_number(number_str):
+    '''
+    if input is unable to convert to float, returns True
+    if input is able to convert to float, return False
+    '''
     try:
         float(number_str)
     except ValueError:
@@ -50,7 +62,7 @@ monthly_payment = loan_amount * (monthly_rate / (1 - (1 + monthly_rate) ** (-dur
 total_payment = monthly_payment * duration_months
 total_interest = total_payment - loan_amount
 
-#prompt Result
+#Display Results
 print('==>')
 prompt('Thank you for your information. Here are your results:')
 prompt(f'Monthly Payment: ${monthly_payment:,.2f}')
