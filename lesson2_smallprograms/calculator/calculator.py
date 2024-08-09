@@ -23,7 +23,7 @@ def invalid_number(number_str):
         return True
     return False
 
-def messages(message, lang='hy'):
+def messages(message, lang='en'):
     return MESSAGES[lang][message]
 
 prompt(messages('welcome'))
@@ -33,6 +33,7 @@ while True:
     number1 = input('==> ')
     
     while invalid_number(number1):
+        prompt(messages("invalid_number"))
         prompt(messages("request_valid_number"))
         number1 = input('==> ')
     
@@ -40,6 +41,7 @@ while True:
     number2 = input('==> ')
     
     while invalid_number(number2):
+        prompt(messages("invalid_number"))
         prompt(messages("request_valid_number"))
         number2 = input('==> ')
     
