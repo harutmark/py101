@@ -53,8 +53,8 @@ while True:
     duration_months = input('==> Months: ')
     while invalid_number(duration_months):
         print("==>")
-        prompt("Hmm, that doesn't seem like a valid input, please enter an integer")
-        prompt("What is the duration of your loan in months? (2 years = 24 months)")
+        prompt("Invalid input, please enter an integer")
+        prompt("What's the duration of your loan in months? (2yrs = 24months)")
         duration_months = input('==> Months: ')
     duration_months = int(duration_months)
     
@@ -70,10 +70,16 @@ while True:
     prompt(f'Total of {duration_months} monthly payments: ${total_payment:,.2f}')
     prompt(f'Total Interest: ${total_interest:,.2f}')
     
-    #Another Caluclation
+    #Another Calculation
     prompt("Would you like to perform another calculation? y/n")
     again = input().lower()
     if again.startswith('y'):
         continue
+    if again.startswith('n'):
+        prompt("Goodbye")
+        break
     else:
+        prompt("Unrecognized input, closing mortgage calculator.")
+        prompt("Please restart program to make another calculation,")
+        prompt("Goodbye")
         break
