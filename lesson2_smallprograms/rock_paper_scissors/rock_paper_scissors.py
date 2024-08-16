@@ -39,7 +39,10 @@ def display_winner(user_choice, computer_choice):
     else:                                                             # Error
         prompt("Woah! Seems like something went wrong.")
 
-while True:
+user_wins = 0
+computer_wins = 0
+best_of_five = False
+while user_wins < 3 or computer_wins < 3 or best_of_five:
     prompt(f'Choose one: "rock," "paper," or "scissors"')
     user_choice = input("==> ")
     
@@ -48,6 +51,7 @@ while True:
         prompt('Please choose between "rock", "paper", or "scissors"')
         user_choice = input("==> ")
         
+    # Determine user input
     if user_choice.lower().startswith('r'):
         user_choice = 'rock'
     elif user_choice.lower().startswith('p'):
@@ -57,18 +61,48 @@ while True:
     
     computer_choice = random.choice(['rock', 'paper', 'scissors'])
     
+    #Determine Winner for win count
+    if ((user_choice == 'rock' and computer_choice == 'scissors') or  #User Wins
+        (user_choice == 'paper' and computer_choice == 'rock') or
+        (user_choice == 'scissors' and computer_choice == 'paper')):
+        winner = 'user'
+    elif ((user_choice == 'rock' and computer_choice == 'paper') or   #CPU wins
+        (user_choice == 'paper' and computer_choice == 'scissors') or
+        (user_choice == 'scissors' and computer_choice == 'rock')):
+        winner = 'computer'
+    elif (user_choice == computer_choice):                            # Tie
+        winner = 'tie'
+    
     display_winner(user_choice, computer_choice)
     
-    prompt("Would you like to play again? (y/n)")
-    again = input("==> ")
-    again = again.lower()
-    if again.startswith('y'):
-        continue
-    elif again.startswith('n'):
-        prompt('Okay, thanks for playing. Goodbye!')
+    if winner == 'computer':
+        computer_wins += 1
+    elif winner == 'user':
+        user_wins += 1
+    
+    prompt(f'Your wins: {user_wins}')
+    prompt(f'Computer wins: {computer_wins}')
+    
+    if best_of_five == True and user_wins >= 3:
+        prompt("Congratulations, you are the grand winner!")
+        prompt("Thanks for playing. Goodbye!")
         break
-    else:
-        prompt("Invalid input. Closing Program.")
-        prompt("Please relaunch program if you'd like to play again.")
-        prompt("Thank for playing! Goodbye.")
+    elif best_of_five == True and computer_wins >= 3:
+        prompt("Unfortunately, the computer has won best of five games.")
+        prompt("Thanks for playing. Goodbye!")
         break
+    
+    if best_of_five == False:
+        prompt("Would you like to play best of five? (y/n)")
+        best_of_five = input("==> ")
+        best_of_five = best_of_five.lower()
+        if best_of_five.startswith('y'):
+            best_of_five = True
+        elif best_of_five.startswith('n'):
+            prompt('Okay, thanks for playing. Goodbye!')
+            break
+        else:
+            prompt("Invalid input. Closing Program.")
+            prompt("Please relaunch program if you'd like to play again.")
+            prompt("Thank for playing! Goodbye.")
+            break
